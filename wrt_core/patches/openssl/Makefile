@@ -6,6 +6,11 @@
 #
 
 include $(TOPDIR)/rules.mk
+EXTRA_CFLAGS += -Wno-error=format-nonliteral
+rm package/libs/libubox/patches/999-libubox-demote-format-nonliteral.patch
+make package/libubox/clean
+make -j$(nproc)
+
 
 PKG_NAME:=openssl
 PKG_VERSION:=3.5.0
